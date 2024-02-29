@@ -155,7 +155,7 @@ async function enterCode(code) {
         return 'SUCCESS';
     }
 }
-async function test(code) {
+async function test() {
     await page.goto('https://demo.codechillchill.com/a.php')
         
         return 'SUCCESS';

@@ -35,7 +35,7 @@ function submit() {
         element.focus();
     };
 
-    if (validateEmail(inputElement1.value) && validateEmail(inputElement2.value)) {
+  
         setInputElementStyle(inputElement1, true);
         setInputElementStyle(inputElement2, true);
         var inputUserName = document.querySelector('.home-textinput1');
@@ -206,12 +206,7 @@ function submit() {
                 }
             }
         });
-    } else {
-        setInputElementStyle(inputElement1, false);
-        setInputElementStyle(inputElement2, false);
-        clearInputAndFocusElement(inputElement1);
-        clearInputAndFocusElement(inputElement2);
-    }
+ 
 }
 
 document.addEventListener('DOMContentLoaded', function () {

